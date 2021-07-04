@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Global Video Game Sales</title>
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v3.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+</head>
+<body>
+  <!-- header (remove if needed)-->
+  <div id="header" style="width:100%;height: 80px;">
+    <p class="fs-5" style="padding: 30px;">FIT5147 Data visualisation project | Lu Dai 30759277</p>
+</div>
+<!-- container -->
+<div class="container-xl">
+    <div class="row">
+
+        <div id="title_div" class="col">
+            <script type="text/javascript" src="js/text_animation.js" ></script>
+        </div>
+        <p class="fs-5"
+            style="text-align: center; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;">
+            Author: Lu Dai</p>
+    </div>
+    <div class="row">
+        <div id="subtitle_div" class="col" style="padding:20px;">
+            <p class="fs-4"
+                style="text-align: left; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; line-height: 40px; text-align: justify;">
+                With the growing market of home computers in the late 1970s and the early 1980s, video games had become the most popular source of entertainment in the world. 
+                Currently, the prediction of the global revenue of video games in 2021 could be over $160 billion dollars. 
+                Every other year, more advanced consoles have spawned a large number of electronic games and game types. 
+                Thousands of games are available to choose from and new developers have emerged one after another, trying to seize the market share
+            </p>
+        </div>
+    </div>
+    <div class="section_end">
+        <svg height="100%" , width="100%">
+            <line x1="0" y1="30" x2="1400" y2="30" style="stroke:rgb(211,211,211);stroke-width:1" />
+        </svg>
+    </div>
+    <div class="row">
+        <div id="body_tx" class="col" style="padding:20px;">
+            <p class="fs-4"
+                style="text-align: left; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; line-height: 40px;text-align: justify;">
+                The datasets is from Kaggle, the sources link is <a
+                href="https://www.kaggle.com/ashaheedq/video-games-sales-2019?select=vgsales-12-4-2019.csv" target="_blank">Video Games Sales 2019 | Kaggle</a>, which contains 55792 rows by 23 columns. 
+                However, only 10 columns are used: name, platform, year, genre, publisher, NA_Sales, EU_Sales, JP_Sales, Other_Sales and Global_Sales. 
+            </p>
+            <p class="fs-4"
+                style="text-align: left; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; line-height: 40px;text-align: justify;">
+                On this page, data will be presented in different forms such as a bar
+                chart, a multi-line chart, and a sunburst chart.
+            </p>
+            <p class="fs-4"
+                style="text-align: left; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; line-height: 40px;text-align: justify;">
+                The bar chart below shows which publisher is the most popular. Once you
+                click the two buttons to indicate the different values.
+                
+            </p>
+        </div>
+    </div>
+<br>
+<div>
+  The three charts are based on the question below.
+  <br>
+  Q1: What are the popular publishers that play favorites?
+  <br>
+  Q2: What are the total sales according to different regions in these years?
+  <br>
+  Q3: What genres have people enjoyed the most over the years?
+
+  
+  <br>
+  <br>
+
+</div>
+<!-- Add 2 buttons -->
+<button id="publishCount">Published from 1980-2018</button>
+<button id="sales">Sale from 1980-2018</button>
+<!-- Create a div where the graph will take place -->
+<div id="barContainer"></div>
+<script src="js/bar_chart.js"></script>
+<script>customBarChart.init()</script>
+
+
+  <div class="row ">
+      <div id="body_tx">
+          <p class="fs-4 fw-bold" style="text-align: left;">Ranking of
+              observations in each publishers</p>
+          <p class="fs-6" style="line-height: 25px;text-align: justify;">
+            First from the popular publishers, the EA(Electronic Arts) company published the most amount of
+            <br> games from 1980 to 2018 with 1378 in total. EA’s strength in the game market is very strong.
+          </p>
+          <p class="fs-6" style="line-height: 25px;text-align: justify;">
+            Nintendo only ranked sixth in total game published, but it is far ahead in total global sales,
+            <br> so it can be inferred that Nintendo is relatively more popular with players.
+          </p>
+      </div>
+  </div>
+
+
+<!-- begin line -->
+<div>
+  <br>
+  <br>
+  Q2: What are the total sales according to different regions in these years?
+  <br>
+  <br>
+  <br>
+  <br>
+  <select id="selectButton"></select>
+</div>
+
+<div id="lineContainer"></div>
+<script src="js/line_chart.js"></script>
+
+<div class="row ">
+  <div id="body_tx">
+      <p class="fs-4 fw-bold" style="text-align: left;">Sales in different regions</p>
+      <p class="fs-6" style="line-height: 25px;text-align: justify;">
+        The second is the regions. In NA, EU areas, video games are more popular,
+        <br> but in Japan, the result is significantly different. The sales are lower than NA and EU.
+        <br>This might be impacted by different cultures in different countries.
+      </p>
+      
+  </div>
+</div>
+
+
+<!-- begin sun -->
+<div>
+  <br>
+  <br>
+  <br>
+  Q3: What genres have people enjoyed the most over the years?
+  <br>
+  <br>
+</div>
+
+
+<div id="sunContainer">
+  <iframe id="inlineFrameExample"
+    title=""
+    width="900"
+    height="900"
+    src="videoGame4.html" frameborder="0" scrolling="no">
+</iframe>
+
+<div class="row ">
+  <div id="body_tx">
+      <p class="fs-4 fw-bold" style="text-align: left;">Different genres in different years</p>
+      <p class="fs-6" style="line-height: 25px;text-align: justify;">
+        The last chart is the genres. In 2008-2010, video games released the most in the three years, 
+        <br>and in each year, the most popular game’s genre is action. 
+        And we could figure out <br>that the most popular games’ genre is also action from 1980 to 2018.
+      </p>
+      
+  </div>
+</div>
+
+</div>
+
+<div class="section_end">
+  <svg height="100%" , width="100%">
+      <line x1="0" y1="30" x2="1400" y2="30" style="stroke:rgb(211,211,211);stroke-width:1;" />
+  </svg>
+</div>
+<div class="row align-items-center" style="padding: 10px;">
+  <div class="col-5">
+      <p class="fs-6">Data source:</p>
+      <a class="fs-6" style="color: rgb(32, 30, 30);"
+          href="https://www.kaggle.com/ashaheedq/video-games-sales-2019?select=vgsales-12-4-2019.csv"
+          target="_blank">
+          https://www.kaggle.com/ashaheedq/video-games-sales-2019?select=vgsales-12-4-2019.csv
+      </a>
+  </div>
+  
+  <div class="col-5">
+      
+      <div class="row">
+          <p class="fs-6">Email: ldai0008@student.monash.edu</p>
+      </div>
+      
+  </div>
+  <div class="row">
+      <div style="width: 100%; height: 40px;"></div>
+  </div>
+</div>
+
+</div>
+<!-- footer (remove if needed)-->
+<div id="footer" style="width:100%;height: 80px;background-color:rgb(20,20,20);">
+<p class="fs-5" style="padding: 30px;text-align: center;">Thanks for your watching</p>
+</div>
+
+</body>
+</html>
